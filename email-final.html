@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinemind - AI Powered Screenplay Analysis</title>
+    <style>
+        /* Reset styles for email clients */
+        body, table, td, p, a, li, blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        table, td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+            border-collapse: collapse;
+        }
+        img {
+            -ms-interpolation-mode: bicubic;
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+            display: block;
+        }
+        
+        /* Fonts */
+        .neue-bold {
+            font-family: 'Neue Bold', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: bold;
+        }
+        .courier {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .georgia {
+            font-family: Georgia, serif;
+        }
+        /* Header underline container (desktop/default) */
+        .underline-table {
+            width: 256px;
+            max-width: 256px;
+        }
+        
+        /* Responsive styles */
+        @media screen and (max-width: 600px) {
+        .container {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        .mobile-padding {
+            padding-left: 100px !important;
+            padding-right: 100px !important;
+        }
+        .mobile-text-center {
+            text-align: center !important;
+        }
+        .logo-row td {
+            display: block !important;
+            width: 100% !important;
+            text-align: center !important;
+            padding: 8px 0 !important;
+        }
+        .logo-item {
+            width: 48px !important;
+            height: 48px !important;
+            margin: 0 auto !important;
+        }
+        .main-title {
+            font-size: 36px !important;
+        }
+        .subtitle {
+            font-size: 28px !important;
+        }
+        .mobile-center-table {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        .underline-line { 
+            width: 35% !important; 
+            max-width: 60px !important; 
+        }
+        .underline-spacer { 
+            width: 6px !important; 
+            max-width: 6px !important; 
+        }
+        .underline-table { 
+            width: 160px !important; 
+            max-width: 160px !important; 
+        }
+    }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f9fafb; font-family: Arial, sans-serif;">
+    <!-- Email Container -->
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 32px 16px;">
+                <!-- Main Email Content -->
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="max-width: 672px; background-color: #ffffff; margin: 0 auto;" class="container">
+                    
+                    <!-- Decorative Header Strip -->
+                    <tr>
+                        <td style="height: 8px; background: linear-gradient(to right, #000000, #4b5563, #000000);"></td>
+                    </tr>
+                    
+                    <!-- Email Header -->
+                    <tr>
+                        <td style="text-align: center; padding: 48px 32px; position: relative;" class="mobile-padding">
+                            
+                            <!-- Logo/Brand Name -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td style="text-align: center; padding-bottom: 48px;">
+                                        <h1 class="neue-bold main-title" style="font-size: 48px; letter-spacing: 0.2em; color: #000000; margin: 0 0 16px 0; line-height: 1.2; font-weight: normal;">CINEMIND</h1>
+                                        
+                                        <!-- Stylized Underline -->
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td align="center">
+                                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: 0 auto;" class="underline-table" width="256">
+                                                        <tr>
+                                                            <!-- Left line -->
+                                                            <td class="underline-line" style="width:40%; max-width:120px; height:1px; background-color:#000000; vertical-align:middle;"></td>
+                                                          
+                                                            <!-- Spacer -->
+                                                            <td class="underline-spacer" style="width:12px; max-width:16px; vertical-align:middle;"></td>
+                                                          
+                                                            <!-- Circle -->
+                                                            
+                                                          
+                                                            <!-- Spacer -->
+                                                            <td class="underline-spacer" style="width:12px; max-width:16px; vertical-align:middle;"></td>
+                                                          
+                                                            <!-- Right line -->
+                                                            <td class="underline-line" style="width:40%; max-width:120px; height:1px; background-color:#000000; vertical-align:middle;"></td>
+                                                          </tr>
+                                                          
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Main Headline -->
+                            <h2 class="courier subtitle" style="font-size: 36px; color: #000000; margin: 0 0 32px 0; line-height: 1.3; letter-spacing: -0.02em; font-weight: normal;">AI Powered Screenplay Analysis</h2>
+                            
+                            <!-- Subheading with Border -->
+                            <!-- Headline box with corner ticks (no absolute positioning) -->
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td align="center" style="padding-bottom:64px;">
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="border:2px solid #000000; border-radius:6px;">
+          <tr>
+            <td style="padding:0;">
+              <!-- Corner ticks: TOP row -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td width="24" height="16" valign="top" style="padding:0;">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="12" height="12">
+                      <tr><td style="border-top:2px solid #000000; border-left:2px solid #000000; font-size:0; line-height:0;">&nbsp;</td></tr>
+                    </table>
+                  </td>
+                  <td><!-- flexible spacer --></td>
+                  <td width="24" height="16" align="right" valign="top" style="padding:0;">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="12" height="12" align="right">
+                      <tr><td style="border-top:2px solid #000000; border-right:2px solid #000000; font-size:0; line-height:0;">&nbsp;</td></tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+  
+              <!-- Content -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="padding:24px;">
+                    <p style="font-family: Courier, monospace; font-size:18px; color:#000000; margin:0; line-height:1.5; text-align:center;">
+                      A First Look at Our Upcoming Features for Creators &amp; Studios
+                    </p>
+                  </td>
+                </tr>
+              </table>
+  
+              <!-- Corner ticks: BOTTOM row -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td width="24" height="16" valign="bottom" style="padding:0;">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="12" height="12">
+                      <tr><td style="border-bottom:2px solid #000000; border-left:2px solid #000000; font-size:0; line-height:0;">&nbsp;</td></tr>
+                    </table>
+                  </td>
+                  <td><!-- flexible spacer --></td>
+                  <td width="24" height="16" align="right" valign="bottom" style="padding:0;">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="12" height="12" align="right">
+                      <tr><td style="border-bottom:2px solid #000000; border-right:2px solid #000000; font-size:0; line-height:0;">&nbsp;</td></tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+  
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  
+  <!-- Featured image block with film strips (top + image + bottom) -->
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" 
+       style="border: 4px solid #000000; border-radius: 16px; overflow: hidden;">
+    <tr>
+      <td align="center" style="padding-bottom:50px;">
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="border-top-left-radius:10px solid #000000; border-radius:16px;">
+          
+          
+            <!-- Film Strip TOP -->
+          <tr>
+            <td bgcolor="#000000" align="center" style="height:32px; padding:0; border-top-left-radius:10px; border-top-right-radius:12px;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin:0 auto;">
+                <tr>
+                  <!-- 10 holes with 8px spacers; duplicate count top & bottom -->
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px; font-size:0; line-height:0;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+
+
+                </tr>
+              </table>
+            </td>
+          </tr>
+  
+          <!-- Image -->
+          <tr>
+            <td style="padding:0;">
+              <img src="https://raw.githubusercontent.com/boeing23/images/main/joker.png"
+                   alt="Cinemind AI Analysis Platform - Business Professional"
+                   width="600" height="320"
+                   style="display:block; width:100%; height:320px; border:0; outline:none; text-decoration:none;">
+            </td>
+          </tr>
+  
+          <!-- Film Strip BOTTOM -->
+          <tr>
+            <td bgcolor="#000000" align="center" style="height:32px; padding:0; border-bottom-left-radius:12px; border-bottom-right-radius:12px;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin:0 auto;">
+                <tr>
+                  <!-- 10 holes with 8px spacers; duplicate count top & bottom -->
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px; font-size:0; line-height:0;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+                  <td width="8">&nbsp;</td>
+                  <td width="16" height="16" bgcolor="#ffffff" style="border-radius:2px;">&nbsp;</td>
+
+
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+  
+        <!-- Caption -->
+        <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td align="center" style="padding-top:12px;">
+              <p style="font-family: Courier, monospace; font-size:18px; color:#000000; margin:0; letter-spacing:0.05em;">
+                Unmasking Screenplays
+              </p>
+            </td>
+          </tr>
+        </table>
+  
+      </td>
+    </tr>
+  </table>
+  
+                            <!-- Content Sections -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+
+                                <!-- Section 1 -->
+                                <tr>
+                                  <td style="padding-bottom:32px;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:#f9fafb; border-radius:10px solid #e5e7eb; border-radius:12px;">
+                                      <!-- badge row -->
+                                    
+                                      <!-- content row with left accent -->
+                                      <tr>
+                                        <td style="padding:0;">
+                                          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                              <td width="3" style="background:#000000; font-size:0; line-height:0;">&nbsp;</td>
+                                              <td style="padding:24px;">
+                                                <p style="font-family:Courier, monospace; text-align:left; color:#000000; line-height:1.5; margin:0; font-size:18px;">
+                                                  Cinemind is a story and screenplay analysis platform.
+                                                  It uses AI to analyze a story, screenplay, book/manuscript or a TV/series pilot episode to generate a 5-8 page report that gives you a logline, a detailed synopsis, character summaries, SWOT analysis, conclusion and various other data points that help you objectively analyze an IP. And it does so in less than 3 minutes.
+                                                </p>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              
+                                <!-- Section 2 -->
+                                <tr>
+                                  <td style="padding-bottom:32px;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:#f9fafb; border-radius:10px solid #e5e7eb; border-radius:12px;">
+                                      <!-- badge row -->
+                                     
+                                      <!-- content row with left accent -->
+                                      <tr>
+                                        <td style="padding:0;">
+                                          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td width="3" style="background:#000000; font-size:0; line-height:0; height:30px; vertical-align:top;">&nbsp;</td>
+                                              <td style="padding:24px;">
+                                                <p style="font-family:Courier, monospace; text-align:left; color:#000000; line-height:1.5; margin:0; font-size:18px;">
+                                                  Cinemind can be customized to add more specific data points according to the needs of the user like how the material fits into your company slate or identify similar movies in the past along with their box office numbers, etc. It is very easy to use, just sign up and begin. For details, please check
+                                                  <a href="https://cinemind.co" target="_blank" style="color:#000000; text-decoration:underline;">cinemind.co</a>
+                                                </p>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              
+                                <!-- Section 3 - Client Showcase -->
+                                <tr>
+                                  <td style="padding-bottom:32px;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:#f9fafb; border:3px solid #000000; border-radius:8px;">
+                                      <!-- badge row with star -->
+                                      <tr>
+                                        <td style="padding:8px 12px;">
+                                          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                              <td><!-- flexible spacer --></td>
+                                              <td width="40" align="right" valign="top" style="padding:0;">
+                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="32" height="32" align="right" style="border-radius:50%; background-color:#000000; border-radius:10px solid #000000">
+                                                  <tr>
+                                                    <td align="center" valign="middle" style="font-family:Courier, monospace; font-size:12px; color:#ffffff; line-height:1;">★</td>
+                                                  </tr>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                      </tr>
+                              
+                                      <!-- title -->
+                                      <tr>
+                                        <td style="padding:0 24px 16px 24px;">
+                                          <h3 style="font-family:Arial, Helvetica, sans-serif; font-size:20px; color:#000000; margin:0; text-align:center; font-weight:normal;">
+                                            TRUSTED BY INDUSTRY LEADERS
+                                          </h3>
+                                        </td>
+                                      </tr>
+                                      
+                                      <!-- Introduction paragraph -->
+                                      <tr>
+                                        <td style="padding:0 24px 24px 24px;">
+                                          <p style="font-family:Courier, monospace; text-align:center; color:#000000; line-height:1.5; margin:0; font-size:18px;">
+                                            At the moment, Cinemind is being used by executives at Universal Studios, Amblin Partners, Endurance Media, Millennium Media, Reliance Entertainment and many more to analyze stories. Besides these companies, independent producers, writers and agents/managers are also using the platform with success.
+                                          </p>
+                                        </td>
+                                      </tr>
+                              
+                                      <!-- logos row -->
+                                      <tr>
+                                        <td style="padding:16px 12px 24px 12px;">
+                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                <tr>
+                                                    <!-- Universal -->
+                                                    <td align="center" valign="top" style="padding:0 8px;">
+                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" 
+                                                               width="64" height="64" 
+                                                               style="width:64px; height:64px; border-radius:100%; background-color:#ffffff">
+                                                            <tr>
+                                                                <td align="center" valign="middle" 
+                                                                    style="width:64px; height:64px; border-radius:50% solid #000000; mso-border-radius-alt:50%;">
+                                                                    <img src="https://raw.githubusercontent.com/boeing23/images/main/universal.png" 
+                                                                         alt="Universal Studios" width="60" height="60" 
+                                                                         style="display:block; border:0; outline:none; text-decoration:none;">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <div style="font-family:Courier, monospace; font-size:12px; color:#000000; opacity:0.75; margin-top:8px; mso-opacity-alt:75%;">UNIVERSAL</div>
+                                                    </td>
+                                                    
+                                                    <!-- Amblin -->
+                                                    <td align="center" valign="top" style="padding:0 8px;">
+                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" 
+                                                               width="64" height="64" 
+                                                               style="width:64px; height:64px; border-radius:16px solid #000000; border-radius:50%; background-color:#ffffff; mso-border-radius-alt:50%;">
+                                                            <tr>
+                                                                <td align="center" valign="middle" 
+                                                                    style="width:64px; height:64px; border-radius:50%; mso-border-radius-alt:50%;">
+                                                                    <img src="https://raw.githubusercontent.com/boeing23/images/main/amblin.png" 
+                                                                         alt="Amblin Entertainment" width="60" height="60" 
+                                                                         style="display:block; border:0; outline:none; text-decoration:none;">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <div style="font-family:Courier, monospace; font-size:12px; color:#000000; opacity:0.75; margin-top:8px; mso-opacity-alt:75%;">AMBLIN</div>
+                                                    </td>
+                                                    
+                                                    <!-- Endurance -->
+                                                    <td align="center" valign="top" style="padding:0 8px;">
+                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" 
+                                                               width="64" height="64" 
+                                                               style="width:64px; height:64px;border-radius:50%; background-color:#ffffff; mso-border-radius-alt:50%;">
+                                                            <tr>
+                                                                <td align="center" valign="middle" 
+                                                                    style="width:64px; height:64px; border-radius:50%; mso-border-radius-alt:50%;">
+                                                                    <img src="https://raw.githubusercontent.com/boeing23/images/main/endurance.png" 
+                                                                         alt="Endurance Media" width="60" height="60" 
+                                                                         style="display:block; border:0; outline:none; text-decoration:none;">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <div style="font-family:Courier, monospace; font-size:12px; color:#000000; opacity:0.75; margin-top:8px; mso-opacity-alt:75%;">ENDURANCE</div>
+                                                    </td>
+                                                    
+                                                    <!-- Millennium -->
+                                                    <td align="center" valign="top" style="padding:0 8px;">
+                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" 
+                                                               width="64" height="64" 
+                                                               style="width:64px; height:64px; border-radius:16px solid #000000; border-radius:50%; background-color:#ffffff; mso-border-radius-alt:50%;">
+                                                            <tr>
+                                                                <td align="center" valign="middle" 
+                                                                    style="width:64px; height:64px; border-radius:50%; mso-border-radius-alt:50%;">
+                                                                    <img src="https://raw.githubusercontent.com/boeing23/images/main/millenium.png" 
+                                                                         alt="Millennium Media" width="64" height="64" 
+                                                                         style="display:block; border:0; outline:none; text-decoration:none;">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <div style="font-family:Courier, monospace; font-size:12px; color:#000000; opacity:0.75; margin-top:8px; mso-opacity-alt:75%;">MILLENNIUM</div>
+                                                    </td>
+                                                    
+                                                    <!-- Reliance -->
+                                                    <td align="center" valign="top" style="padding:0 8px;">
+                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" 
+                                                               width="64" height="64" 
+                                                               style="width:64px; height:64px; border-radius:16px solid #000000; border-radius:50%; background-color:#ffffff; mso-border-radius-alt:50%;">
+                                                            <tr>
+                                                                <td align="center" valign="middle" 
+                                                                    style="width:64px; height:64px; border-radius:50%; mso-border-radius-alt:50%;">
+                                                                    <img src="https://raw.githubusercontent.com/boeing23/images/main/reliance.png" 
+                                                                         alt="Reliance Entertainment" width="60" height="60" 
+                                                                         style="display:block; border:0; outline:none; text-decoration:none;">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <div style="font-family:Courier, monospace; font-size:12px; color:#000000; opacity:0.75; margin-top:8px; mso-opacity-alt:75%;">RELIANCE</div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                     </tr>
+                                     
+                    
+                    <!-- spacer -->
+                    <tr>
+                        <td style="height:24px; font-size:0; line-height:0;">&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+                                  </td>
+                                </tr>
+                              
+                                <!-- Section 4 - Quote -->
+                                <tr>
+                                  <td align="center" style="padding:32px;">
+                                    <p style="font-family:Courier, monospace; color:#000000; line-height:1.5; font-style:italic; margin:0; font-size:16px;">
+                                      "We are filmmakers ourselves and we created Cinemind to solve our own problem. Ultimately, there is no substitute for reading, human understanding and personal taste but Cinemind is a great filter which enables you to become decisive and efficient."
+                                    </p>
+                                  </td>
+                                </tr>
+                              </table>
+                              
+                            
+                            <!-- Call to Action -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td style="padding-top: 64px; padding-bottom: 64px; border-top: 2px solid #000000;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td align="center" style="padding-top: -12px;">
+                                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                                                        <tr>
+                                                            <td style="background-color: #000000; color: #ffffff; padding: 16px 40px; border: 2px solid #000000; text-align: center; border-radius: 0;">
+                                                                <a href="https://www.cinemind.co/home" class="courier" style="color: #ffffff; text-decoration: none; display: block; font-size: 14px;">EXPLORE PLATFORM</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Footer -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td style="padding-top: 64px; border-top: 1px solid #d1d5db; text-align: center;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="padding-bottom: 24px;">
+                                                    <a href="mailto:info@kuiperfilms.co" 
+                                                    class="courier" 
+                                                    style="font-size: 14px; color: #000000; text-decoration: none; border-bottom: 1px solid transparent;">
+                                                    CONTACT
+                                                 </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td align="center" style="padding-bottom: 16px;">
+                                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: 0 auto;">
+                                                        <tr>
+                                                            <!-- <td style="width: 48px; height: 1px; background-color: #000000; vertical-align: middle;"></td> -->
+                                                            <td style="width: 16px; vertical-align: middle;"></td>
+                                                            <td style="vertical-align: middle;">
+                                                                <p class="courier" style="font-size: 14px; color: #000000; margin: 0; white-space: nowrap;">©2025 CINEMIND. ALL RIGHTS RESERVED.</p>
+                                                            </td>
+                                                            <td style="width: 16px; vertical-align: middle;"></td>
+                                                            <!-- <td style="width: 48px; height: 1px; background-color: #000000; vertical-align: middle;"></td> -->
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Decorative Footer Strip -->
+                    <tr>
+                        <td style="height: 8px; background: linear-gradient(to right, #000000, #4b5563, #000000);"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
